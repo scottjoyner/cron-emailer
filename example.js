@@ -1,6 +1,6 @@
 "use strict";
 const nodemailer = require("nodemailer");
-
+const emailDoc = './email.html';
 // async..await is not allowed in global scope, must use a wrapper
 async function main() {
   // Generate test SMTP service account from ethereal.email
@@ -24,7 +24,7 @@ async function main() {
     to: "kipnerter@gmail.com, scjoyner@ncsu.edu", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    html: emailDoc, // html body
   });
 
   console.log("Message sent: %s", info.messageId);

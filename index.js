@@ -8,7 +8,9 @@ const {SENDER_PASS} = process.env
 const {RECEIVER_LIST} = process.env
 const {CC_LIST} = process.env
 const {SUBJECT} = process.env
-const {HTML} = process.env
+const HTML = './email.html';
+
+
 
 // console.log(SENDER_EMAIL, SENDER_PASS, RECEIVER_LIST, CC_LIST, SUBJECT, HTML)
 app = express()
@@ -30,9 +32,18 @@ let mailOptions = {
 }
 
 cron.schedule("* * * * *", () => {
-    console.log("Running Cron Job " + new Date())
+    console.log("Running Email Cron Job" + new Date())
     sendEmail()
 })
+
+cron.schedule("59 23 * * *", () => {
+    console.log("Running Cron Job " + new Date())
+    getActivities()
+})
+
+getActivities = () => {
+    
+}
 
 sendEmail = () => {
     transporter.sendMail(mailOptions, (error, info) => {
