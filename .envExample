@@ -1,0 +1,6 @@
+SENDER_EMAIL='user@gmail.com'
+SENDER_PASS='password'
+RECEIVER_LIST="Enter the list of recipients here"
+CC_LIST="Enter your CC'd emails here"
+SUBJECT="Enter Your Subject Line Here"
+HTML=
